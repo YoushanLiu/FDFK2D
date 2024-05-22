@@ -18,6 +18,12 @@ If you use this software for your researches and prepare publications, please cc
    for receiver function analysis. Seismological Research Letters, undergoing review.
 - Chenglong Wu, Tao Xu, Xiaobo Tian, Ross N. Mitchell, Jiyan Lin, Jianfeng Yang, Xin Wang, Zhanwu Lu. 2024. Underthrusting of Tarim lover crust beneath the Tibetan Plateau revealed by receiver function imaging. Geophysical Research Letters, 51, e2024GL108220.
 
+# Prerequisites
+Before you compile this software, you should first install the following packages.
+- blas
+- lapack
+- fftw3
+
 # Installation and Usuage
 Before you run this software, you can copy the library files in the `lib` folder to `/usr/lib64` with root permission or add their directory to the environment variable by `export LD_LIBRARY_PATH=/your_path:$LD_LIBRARY_PATH`
 Now, you can install this software.
