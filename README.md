@@ -29,7 +29,7 @@ Before you run this software, you can copy the library files in the `lib` folder
 Now, you can install this software.
 - `cd ./src`
 - `make install`
-- `cd ./Tests/test1`
+- `cd ../Tests/test1`
 - `./run_this_example`
 
 # Documentation
