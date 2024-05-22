@@ -21,11 +21,30 @@ If you use this software for your researches and prepare publications, please cc
 # Installation and Usuage
 Before you run this software, you can copy the library files in the `lib` folder to `/usr/lib64` with root permission or add their directory to the environment variable by `export LD_LIBRARY_PATH=/your_path:$LD_LIBRARY_PATH`
 Now, you can install this software.
-- cd ./src
-- make install
-- cd ./Tests/test1
-- ./run_this_example
+- `cd ./src`
+- `make install`
+- `cd ./Tests/test1`
+- `./run_this_example`
 
+# Documentation
+All input parameters are placed in a folder, such as `input`.
+In this folder, there are six files.
+- `inpar.data`: list of Filenames
+   - FD_model.dat       -> Parameters for FD modeling
+   - FK_model_left.dat  -> 1D model on left side
+   - FK_model_right.dat -> 1D model on right side
+   - Vp_model.su        -> Vp velocity model in SU format.
+   - Vs_model.su        -> Vs velocity model in SU format.
+
+All parameters are self-explaining. All physical quantities are international units.
+
+# Utils
+There are several auxiliary programs in `utils`.
+- gauss_smooth.f90 -> A Fortran program to smooth the velocity model. Usually, the geological structure in real world is relatively smooth. You can use this program to smooth your velocity models.
+- readsu.m         -> A MATLAB script to read velocity model in SU format (i.e., the SEGY format after removing 3200 bytes textual header and 400 bytes binary header).
+- writesu.m        -> A MATLAB script to write velocity model in SU format.
+- plot_seism.m     -> A MATLAB script to plot seismograms.
+- plot_snap.m      -> A MATLAB script to plot snapshots.
 
 # License
 FDFK2D is a free software: you can redistribute it and/or modify it under the terms of the MIT License. A copy of this license is provided in LICENSE.
