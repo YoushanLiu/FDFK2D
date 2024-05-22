@@ -9,7 +9,7 @@ FD: Seismic wavefield modeling using collocated grid finite difference method in
 
 FK: Seismic wavefield modeling using the frequency-wavenumber or propagator matrix method in three-dimensional elastic isotropic media.
 
-If this software is used in your research, please consider cite one of the following papers.
+If this software is used in your researches, please consider cite one of the following papers.
 
 - Youshan Liu, Chenglong Wu, Tao Xu, Liang Zhao, Jiwen Teng. 2024. Efficient two-dimensional teleseismic wavefield hybrid simulation method 
    for receiver function analysis. Seismological Research Letters, undergoing review.
