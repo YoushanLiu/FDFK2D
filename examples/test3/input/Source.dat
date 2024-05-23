@@ -1,0 +1,4 @@
+f0(Hz)                           streng of source(Pa)        source type(P: .true.; S: .false.)
+   1.0                           1.d0                        .false.
+ray parameter(s/deg)             latitude of source(deg)     longtitude of source(deg)
+  9.535                          -42.0                       10.0
