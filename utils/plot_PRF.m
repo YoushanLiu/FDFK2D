@@ -1,15 +1,10 @@
 clear;
 clc;
 
-inpath = './seismograms/';
+inpath = '../seismograms/';
 
-%[ux, nt, nx, dt] = readsu([inpath, 'seisx.su']);
-%[uz] = readsu([inpath, 'seisz.su']);
-
-inpath = './seismograms_1layer_P_S/';
-
-[ux, nt, nx, dt] = readsu([inpath, 'seisxFD_P.su']);
-[uz] = readsu([inpath, 'seiszFD_P.su']);
+[seisx, nt, nx, dt] = readsu([inpath, 'seisx.su']);
+[seisz] = readsu([inpath, 'seisz.su']);
 
 
 itr = 101;
@@ -26,13 +21,13 @@ tlag = (tlag_min:dt:tlag_max);
 
 
 % compute RF
-RF = makeRFitdecon(ux(:,itr), uz(:,itr), dt, tlag_min, tlag_max, 0.0, 8., 100, 1.e-3, 1);
+RF = makeRFitdecon(seisx(:,itr), seisz(:,itr), dt, tlag_min, tlag_max, 0.0, 8., 100, 1.e-3, 1);
 
 
 figure(1);
 subplot(3,1,1);
 hold off;
-plot(t, ux(:,itr), 'r');
+plot(t, seisx(:,itr), 'r');
 hold off;
 xlabel('Time [s]');
 ylabel('Amplitude');
@@ -40,7 +35,7 @@ title('Radial');
 
 subplot(3,1,2);
 hold off;
-plot(t, uz(:,itr), 'r');
+plot(t, seisz(:,itr), 'r');
 hold off;
 xlabel('Time [s]');
 ylabel('Amplitude');
