@@ -1,0 +1,11 @@
+order of FD(2m>=2)
+  6
+X0(m)        Xn(m)        Z0(m)     Zn(m)       Dx(m)      Dz(m)       Dt(s)
+  0          380000       0         120000      200        200         0.01
+tmax(s)      tstep        nPML(number of grid)  is_PML_top
+  85.0       0.01         20                    .false.
+latitude of (X0,Z0)       longitude of (X0,Z0)  azimuthe of profile
+  40.372214	              88.173868             134.1466634471141
+output snapshot?(.true. or .false.)  nstep(output snapshot per nstep)
+  .true.                             100
+
