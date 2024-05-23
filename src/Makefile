@@ -7,8 +7,18 @@ SRC_DIR = ./
 
 
 FC = ifort
-FFLAGS = -O3 -xHost -fpp -fpe0 -ftz -mcmodel=medium -qopt-matmul -qopenmp #-mkl=parallel
-LIBS = -lfftw3 -llapack -lblas -lhybrid -lPML -lFK3D
+#FC = gfortran
+
+
+ifeq ($(FC),ifort)
+	FFLAGS = -O3 -qopenmp -xHost -unroll -ftz -fma -fpp -fpe0 -assume buffered_io -assume byterecl -align sequence -diag-disable 6477 -implicitnone -gen-interfaces -mcmodel=large -shared-intel -arch AVX
+else ifeq ($(FC),gfortran)
+	FFLAGS = -O3 -Ofast -fopenmp -g -funroll-loops -malign-double -ffast-math -mtune=native
+else
+	FFLAGS = -O3 -fast -mp -m64 -Mpreprocess -Mnobounds -Mautoinline -Mcache_align -Mfma -Mprefetch -Munroll -Mdaz -mcmodel=medium -Mmpi=mpich2 -flushz -Mmavx
+endif
+
+LIBS = -lfftw3 -llapack -lblas -lHybrid -lPML -lFK3D
 
 
 OBJEXT = o
@@ -55,7 +65,17 @@ all: lib build install
 
 
 lib:
-	cp ../lib/*.so /usr/lib64
+	@if [ "$(FC)" = "ifort" ]; then \
+		echo "You are using $(FC) compiler"; \
+		cp ../lib_intel/*.so /usr/lib64; \
+	elif [ "$(FC)" = "gfortran" ]; then \
+		echo "You are using $(FC) compiler"; \
+		cp ../lib_gnu/*.so /usr/lib64; \
+	else \
+		echo "You are using $(FC) compiler"; \
+		cp ../lib_pgi/*.so /usr/lib64; \
+	fi
+
 
 build:
 $(OBJ_DIR)/%.o: %.f90
@@ -66,7 +86,6 @@ $(OBJ_DIR)/%.o: %.f
 	$(FC) $(FFLAGS) -c $< -o $@
 
 install: $(OBJS)
-	mkdir -p ~/bin
 	-rm -rf $(EXEC)
 	$(FC) $(FFLAGS) $(OBJS) $(LIBS) -o $(EXEC)
 
@@ -78,8 +97,6 @@ cleanall: clean
 
 
 .PHONY: all
-
-
 
 
 

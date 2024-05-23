@@ -258,33 +258,7 @@ open(unit=iunit, file=path, status='old')
    read(iunit,*)
    do ilayer = 1, nlayer_left, 1
       read(iunit,*) vp, vs, FKmodel_left(1,ilayer)
-      !rho = (vp + 980.0) / 2.760
-      !if (abs(vp - 6000) < 1.e-3) then
-      !   rho = 2700.00
-      !else if (abs(vp - 8000) < 1.e-3) then
-      !   rho = 3300.0
-      !else if (abs(vp - 7000) < 1.e-3) then
-      !   rho = 2900.0
-      !else if (abs(vp - 8700) < 1.e-3) then
-      !   rho = 3480.0
-      !else if (abs(vp - 7800) < 1.e-3) then
-      !   rho = 3200.0
-      !end if
-      if (abs(vp - 6000) < 1.e-3) then
-         rho = 2700.00
-      else if (abs(vp - 8000) < 1.e-3) then
-         rho = 3300.0
-      else if (abs(vp - 7000) < 1.e-3) then
-         rho = 2900.0
-      else if (abs(vp - 8700) < 1.e-3) then
-         rho = 3480.0
-      else if (abs(vp - 7800) < 1.e-3) then
-         rho = 3200.0
-      else if (abs(vp - 7200) < 1.e-3) then
-         rho = 3200.0
-      else
-         rho = (vp + 980.0) / 2.760
-      end if
+      rho = (vp + 980.0) / 2.760
       !vs = vp / 1.732d0
       FKmodel_left(2,ilayer) = vp
       FKmodel_left(3,ilayer) = vs
@@ -302,33 +276,7 @@ open(unit=iunit, file=path, status='old')
    read(iunit,*)
    do ilayer = 1, nlayer_right, 1
       read(iunit,*) vp, vs, FKmodel_right(1,ilayer)
-      !rho = (vp + 980.0) / 2.760
-      !if (abs(vp - 6000) < 1.e-3) then
-      !   rho = 2700.00
-      !else if (abs(vp - 8000) < 1.e-3) then
-      !   rho = 3300.0
-      !else if (abs(vp - 7000) < 1.e-3) then
-      !   rho = 2900.0
-      !else if (abs(vp - 8700) < 1.e-3) then
-      !   rho = 3480.0
-      !else if (abs(vp - 7800) < 1.e-3) then
-      !   rho = 3200.0
-      !end if
-      if (abs(vp - 6000) < 1.e-3) then
-         rho = 2700.00
-      else if (abs(vp - 8000) < 1.e-3) then
-         rho = 3300.0
-      else if (abs(vp - 7000) < 1.e-3) then
-         rho = 2900.0
-      else if (abs(vp - 8700) < 1.e-3) then
-         rho = 3480.0
-      else if (abs(vp - 7800) < 1.e-3) then
-         rho = 3200.0
-      else if (abs(vp - 7200) < 1.e-3) then
-         rho = 3200.0
-      else
-         rho = (vp + 980.0) / 2.760
-      end if
+      rho = (vp + 980.0) / 2.760
       !vs = vp / 1.732d0
       FKmodel_right(2,ilayer) = vp
       FKmodel_right(3,ilayer) = vs
@@ -419,33 +367,7 @@ do ix = 1-npml, nx+npml, 1
    do iz = izt, nz+npml, 1
       vp = c(2,iz,ix)
       vs = c(3,iz,ix)
-      !rho = (vp + 980.0) / 2.760
-      !if (abs(vp - 6000) < 1.e-3) then
-      !   rho = 2700.00
-      !else if (abs(vp - 8000) < 1.e-3) then
-      !   rho = 3300.0
-      !else if (abs(vp - 7000) < 1.e-3) then
-      !   rho = 2900.0
-      !else if (abs(vp - 8700) < 1.e-3) then
-      !   rho = 3480.0
-      !else if (abs(vp - 7800) < 1.e-3) then
-      !   rho = 3200.0
-      !end if
-      if (abs(vp - 6000) < 1.e-3) then
-         rho = 2700.00
-      else if (abs(vp - 8000) < 1.e-3) then
-         rho = 3300.0
-      else if (abs(vp - 7000) < 1.e-3) then
-         rho = 2900.0
-      else if (abs(vp - 8700) < 1.e-3) then
-         rho = 3480.0
-      else if (abs(vp - 7800) < 1.e-3) then
-         rho = 3200.0
-      else if (abs(vp - 7200) < 1.e-3) then
-         rho = 3200.0
-      else
-         rho = (vp + 980.0) / 2.760
-      end if
+      rho = (vp + 980.0) / 2.760
       !vs = vp / 1.7320
       c(1,iz,ix) = rho
       c(2,iz,ix) = rho * (vp*vp - 2.0*vs*vs)
