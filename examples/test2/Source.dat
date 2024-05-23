@@ -1,4 +1,0 @@
-f0(Hz)                           streng of source(m)         source type(P: .true.; S: .false.)
-   1.0                           1.d0                        .true.
-ray parameter(s/deg)             latitude of source(deg)     longtitude of source(deg)
-   4.798                         -42.0                       10.0
