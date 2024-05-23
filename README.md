@@ -38,14 +38,14 @@ Then, you can run the test.
 # Documentation
 All input parameters are placed in a folder, such as `input`.
 In this folder, there are six files.
-- `inpar.data`: list of Filenames
-- FD_model.dat       -> Parameters for FD modeling.
-- Source.dat         -> Parameters for a earthquake. You can use the TauP software to compute the ray parameter of a event.
-- Receiver.dat       -> Parameters for stations.
-- FK_model_left.dat  -> 1D media on left side of the 2D model.
-- FK_model_right.dat -> 1D media on right side of the 2D model.
-- Vp_model.su        -> Vp velocity model in SU format.
-- Vs_model.su        -> Vs velocity model in SU format.
+- `inpar.data`         -> list of Filenames
+- `FD_model.dat`       -> Parameters for FD modeling.
+- `Source.dat`         -> Parameters for a earthquake. You can use the TauP software to compute the ray parameter of a event.
+- `Receiver.dat`       -> Parameters for stations.
+- `FK_model_left.dat`  -> 1D media on left side of the 2D model.
+- `FK_model_right.dat` -> 1D media on right side of the 2D model.
+- `Vp_model.su`        -> Vp velocity model in SU format.
+- `Vs_model.su`        -> Vs velocity model in SU format.
 
 The parameters are self-explaining. All physical quantities are international units.
 
