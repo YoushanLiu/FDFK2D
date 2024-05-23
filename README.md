@@ -30,7 +30,8 @@ or add the directory to the environment variable by setting `export LD_LIBRARY_P
 Now, you can install this software as follows.
 - `cd ./src`
 - `make install`
-- `cd ../Tests/test1`
+   - use the user permission. It will install the executable file in ~/bin, thus you can run FDFK2D anywhere.
+- `cd ../examples/test1`
 
 Then, you can run the tests.
 - `./run_this_example`
