@@ -68,6 +68,8 @@ There are several auxiliary programs in `utils`.
 # Examples
 ![Animation](https://github.com/YoushanLiu/FDFK2D/blob/master/images/displacements.gif)
 
+![PRF](https://github.com/YoushanLiu/FDFK2D/blob/master/images/PRF.png)
+
 
 # License
 FDFK2D is a free software, you can redistribute it and/or modify it under the terms of the MIT License. A copy of this license is provided in LICENSE.
