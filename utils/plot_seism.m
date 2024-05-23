@@ -3,8 +3,6 @@ clc;
 
 inpath = './seismograms/';
 
-inpath = './seismograms_1layer_P_S/';
-
 [seisx, nt, nx, dt] = readsu([inpath, 'seisxFD_S.su']);
 [seisz] = readsu([inpath, 'seiszFD_S.su']);
 
