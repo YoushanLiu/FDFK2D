@@ -1,5 +1,0 @@
-nlayer
-  2
-Vp(m/s)   Vs(m/s)   z+(m) <----- top boundary of the layers
-6000.0    3450.0    0.d3
-8000.0    4450.0    35000.0
