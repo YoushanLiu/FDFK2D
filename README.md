@@ -61,6 +61,7 @@ There are several auxiliary programs in `utils`.
 - plot_seism.m     -> A MATLAB script to plot seismograms.
 - plot_snap.m      -> A MATLAB script to plot snapshots.
 - plot_model.m     -> A MATLAB script to plot velocity models.
+- create_animation -> A MATLAB script to convert snapshots to animation.
 
 # License
 FDFK2D is a free software, you can redistribute it and/or modify it under the terms of the MIT License. A copy of this license is provided in LICENSE.
