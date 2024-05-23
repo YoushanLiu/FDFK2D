@@ -59,4 +59,4 @@ There are several auxiliary programs in `utils`.
 - plot_snap.m      -> A MATLAB script to plot snapshots.
 
 # License
-FDFK2D is a free software: you can redistribute it and/or modify it under the terms of the MIT License. A copy of this license is provided in LICENSE.
+FDFK2D is a free software, you can redistribute it and/or modify it under the terms of the MIT License. A copy of this license is provided in LICENSE.
