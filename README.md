@@ -39,7 +39,7 @@ Then, you can run the tests.
 - `./run_this_example`
 
 # Documentation
-All input parameters are placed in a folder, such as `input`.
+All input files are placed in a folder, such as `input`.
 In this folder, there are six files.
 - `inpar.data`         -> list of Filenames
 - `FD_model.dat`       -> Parameters for FD modeling.
