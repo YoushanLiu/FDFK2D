@@ -1,5 +1,5 @@
 f0(Hz)                           streng of source(m)         source type(P: .true.; S: .false.)
-   1.0                           1.d0                        .true.
+   1.0                           1.d-3                        .true.
 ray parameter(s/deg)             latitude of source(deg)     longtitude of source(deg)
   7.379                          -0.0451	                 124.2812  ! 2021.11.06.14.37.37.418 right
   
@@ -14,6 +14,4 @@ ray parameter(s/deg)             latitude of source(deg)     longtitude of sourc
   7.705                          35.1691	                 26.2152   ! 2021.10.12.09.24.05.099 left
   7.664                          35.2440	                 25.2697   ! 2021.09.27.06.17.21.478 left
 
-
-  8.375                          38.8893	                 135.4527  ! 2021.09.29.08.37.05.619 left
   
