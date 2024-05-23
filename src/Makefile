@@ -1,6 +1,6 @@
 # Makefile for Teleseismic Wavefield modeling to be release
 
-EXEC = ../FDFK2D
+EXEC = ~/bin/FDFK2D
 
 OBJ_DIR = ../obj
 SRC_DIR = ./
@@ -66,6 +66,7 @@ $(OBJ_DIR)/%.o: %.f
 	$(FC) $(FFLAGS) -c $< -o $@
 
 install: $(OBJS)
+	mkdir -p ~/bin
 	-rm -rf $(EXEC)
 	$(FC) $(FFLAGS) $(OBJS) $(LIBS) -o $(EXEC)
 
