@@ -27,8 +27,8 @@ Before you compile this software, you should first install the following package
 - fftw3
 
 # Installation and Usuage
-Before you run this software, you can type `make lib` to copy the library files in the `lib` folder to `/usr/lib64` with root permission
-or add the directory to the environment variable by setting `export LD_LIBRARY_PATH=/your_path:$LD_LIBRARY_PATH`.
+Before you run this software, you can type `make lib` to copy the library files in the `lib` folder to `/usr/lib64` with root permission, then `exit`.
+Or, you can add the directory to the environment variable by setting `export LD_LIBRARY_PATH=/your_path:$LD_LIBRARY_PATH`.
 Now, you can install this software as follows.
 - `cd ./src`
 - `make install`
