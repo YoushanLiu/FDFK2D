@@ -2,7 +2,7 @@ clear;
 clc;
 
 
-%%% define colormap
+% define colormap
 N = 1000;
 cmap = ([linspace(180, 255, N)', linspace(28 , 255, N)', linspace(27 , 255, N)'; ...
          linspace(254,   5, N)', linspace(254,   4, N)', linspace(254, 131, N)'])/255;
