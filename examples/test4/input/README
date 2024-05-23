@@ -1,1 +1,3 @@
-c
+To run this test, you need first to run the MATLAB script `./input/create_two_layers_model.m` to create velocity models.
+
+Then run the bash script `run_this_example.sh` to start wavefield simulation.
