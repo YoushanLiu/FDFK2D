@@ -55,8 +55,11 @@ There are several auxiliary programs in `utils`.
 - readsu.m         -> A MATLAB script to read velocity model in SU format (i.e., the SEGY format after removing 3200 bytes textual header and 400 bytes binary header).
 - writesu.m        -> A MATLAB script to write velocity model in SU format.
 - makeRFitdecon.m  -> A MATLAB script to compute RFs using time-domain iterative deconvolution written by Bailey, et al. (2010).
+- plot_PRF.m       -> A MATLAB script to plot P-wave receiver function.
+- plot_SRF.m       -> A MATLAB script to plot S-wave receiver function.
 - plot_seism.m     -> A MATLAB script to plot seismograms.
 - plot_snap.m      -> A MATLAB script to plot snapshots.
+- plot_model.m     -> A MATLAB script to plot velocity models.
 
 # License
 FDFK2D is a free software, you can redistribute it and/or modify it under the terms of the MIT License. A copy of this license is provided in LICENSE.
