@@ -25,8 +25,9 @@ Before you compile this software, you should first install the following package
 - fftw3
 
 # Installation and Usuage
-Before you run this software, you can copy the library files in the `lib` folder to `/usr/lib64` with root permission or add their directory to the environment variable by `export LD_LIBRARY_PATH=/your_path:$LD_LIBRARY_PATH`
-Now, you can install this software.
+Before you run this software, you can type `make lib` to copy the library files in the `lib` folder to `/usr/lib64` with root permission
+or add the directory to the environment variable by setting `export LD_LIBRARY_PATH=/your_path:$LD_LIBRARY_PATH`.
+Now, you can install this software as follows.
 - `cd ./src`
 - `make install`
 - `cd ../Tests/test1`
@@ -36,13 +37,15 @@ Now, you can install this software.
 All input parameters are placed in a folder, such as `input`.
 In this folder, there are six files.
 - `inpar.data`: list of Filenames
-   - FD_model.dat       -> Parameters for FD modeling
-   - FK_model_left.dat  -> 1D model on left side
-   - FK_model_right.dat -> 1D model on right side
-   - Vp_model.su        -> Vp velocity model in SU format.
-   - Vs_model.su        -> Vs velocity model in SU format.
+- FD_model.dat       -> Parameters for FD modeling.
+- Source.dat         -> Parameters for a earthquake. You can use the TauP software to compute the ray parameter of a event.
+- Receiver.dat       -> Parameters for stations.
+- FK_model_left.dat  -> 1D media on left side of the 2D model.
+- FK_model_right.dat -> 1D media on right side of the 2D model.
+- Vp_model.su        -> Vp velocity model in SU format.
+- Vs_model.su        -> Vs velocity model in SU format.
 
-All parameters are self-explaining. All physical quantities are international units.
+The parameters are self-explaining. All physical quantities are international units.
 
 # Utils
 There are several auxiliary programs in `utils`.
