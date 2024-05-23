@@ -32,7 +32,7 @@ Now, you can install this software as follows.
 - `make install`
 - `cd ../Tests/test1`
 
-Then, you can run the test.
+Then, you can run the tests.
 - `./run_this_example`
 
 # Documentation
