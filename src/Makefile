@@ -31,7 +31,6 @@ ifeq ($(findstring CYGWIN_NT, $(UNAME)), CYGWIN_NT)
    FFLAGS = /nologo /QxHost /fpp /O3 /Qparallel /Qopt-matmul /Qopenmp /Qmkl:parallel
 endif
 
-
 ifeq ($(findstring gfortran, $(FC)), gfortran)
 	# gfortran
 	FFLAGS += -J$(OBJ_DIR)
@@ -61,7 +60,7 @@ OBJS := $(addprefix $(OBJ_DIR)/,$(OBJS))
 
 
 
-all: lib build install
+all: lib install
 
 
 lib:
@@ -77,14 +76,6 @@ lib:
 	fi
 
 
-build:
-$(OBJ_DIR)/%.o: %.f90
-	$(FC) $(FFLAGS) -c $< -o $@
-$(OBJ_DIR)/%.o: %.for
-	$(FC) $(FFLAGS) -c $< -o $@
-$(OBJ_DIR)/%.o: %.f
-	$(FC) $(FFLAGS) -c $< -o $@
-
 install: $(OBJS)
 	-rm -rf $(EXEC)
 	$(FC) $(FFLAGS) $(OBJS) $(LIBS) -o $(EXEC)
@@ -98,6 +89,13 @@ cleanall: clean
 
 .PHONY: all
 
+
+$(OBJ_DIR)/%.o: %.f90
+	$(FC) $(FFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: %.for
+	$(FC) $(FFLAGS) -c $< -o $@
+$(OBJ_DIR)/%.o: %.f
+	$(FC) $(FFLAGS) -c $< -o $@
 
 
 # dependencies
