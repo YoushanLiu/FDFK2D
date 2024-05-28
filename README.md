@@ -2,7 +2,7 @@
 Efficient two-dimensional teleseismic wavefiled hybrid simulation method for receiver function analysis. This software is a highly optimized Fortran package supporting parallel computing using the OpenMP, which can be used to synthetic P- and S-waves RFs.
 
 # Background
-Until now, simulation of high-frequency (< 8 s) seismic wavefield in global-scale is still challenging even using large-scale computer clusters. One feasible way to mitigate this issue is to adopt a so-called hybrid method. This method usually computes the wavefield from source to the boundaries of the target heterogeneous media using a fast and efficient 1D wavefield sovler (such as AxiSEM, DSM, general Ray method, Normal mode, FK, etc.), which is referred to background wavefield. Then, the complex wavefield in the localized target heterogeneous media is computed using 2D/3D wavefield solver (such as finite difference method, pseduospectral method, finite element method, spectral element method, etc.) with the background wavefield as incident wavefield, which is referred to complete wavefield. In the boundaries of the target heterogenous model, a interface between background wavefield and complete wavefiled is applied. This method can simulate the interactions of incoming teleseismic wavefield with local heterogeneities but reducing these heterogeneities to much smaller local computational domain, which can significantly reduce the computing costs of high-frequency teleseismic wavefield with less computational resources. 
+Until now, simulation of high-frequency (< 8 s) seismic wavefield in global-scale is still challenging even using large-scale computer clusters. One feasible way to mitigate this issue is to adopt a so-called hybrid method. This method usually computes the wavefield from source to the boundaries of the target heterogeneous media using a fast and efficient 1D wavefield solver (such as AxiSEM, DSM, general Ray method, Normal mode, FK, etc.), which is referred to background wavefield. Then, the complex wavefield in the localized target heterogeneous media is computed using 2D/3D wavefield solver (such as finite difference method, pseduospectral method, finite element method, spectral element method, etc.) with the background wavefield as incident wavefield, which is referred to complete wavefield. In the boundaries of the target heterogenous model, a interface between background wavefield and complete wavefiled is applied. This method can simulate the interactions of incoming teleseismic wavefield with local heterogeneities but reducing the computational region to much smaller local domain, which can significantly reduce the computing costs of high-frequency teleseismic wavefield with less computational resources. 
 
 ![Schematic diagram of hybrid method](https://github.com/YoushanLiu/FDFK2D/blob/master/images/Hybrid%20method.png)
 
@@ -28,7 +28,7 @@ Before you compile this software, you should first install the following package
 
 Usualy, these softwares can be installed by the Package Manager of your system.
 
-# Installation and Usuage
+# Installation and Usage
 Before you installing this software, you can type `make lib` to copy the library files in the `lib` folder to `/usr/lib64` with root permission, then type `exit`.
 Or, you can add the directory to the environment variable by setting `export LD_LIBRARY_PATH=/your_path:$LD_LIBRARY_PATH`.
 Now, you can install this software as follows.
@@ -45,7 +45,7 @@ All input files are placed in a folder, such as `input`.
 In this folder, there are six files.
 - `inpar.data`         -> list of Filenames
 - `FD_model.dat`       -> Parameters for FD modeling.
-- `Source.dat`         -> Parameters for a earthquake. You can use the TauP software to compute the ray parameter of a event.
+- `Source.dat`         -> Parameters for an earthquake. You can use the TauP software to compute the ray parameter of an event.
 - `Receiver.dat`       -> Parameters for stations.
 - `FK_model_left.dat`  -> 1D media on left side of the 2D model.
 - `FK_model_right.dat` -> 1D media on right side of the 2D model.
