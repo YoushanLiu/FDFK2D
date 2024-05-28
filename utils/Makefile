@@ -1,6 +1,6 @@
 EXEC = ~/bin/gauss_smooth
 
-OBJ_DIR = ./
+OBJ_DIR = .
 SRC_DIR = ./
 
 
@@ -57,7 +57,7 @@ all: $(OBJS)
 	$(FC) $(FFLAGS) $(OBJS) $(LIBS) -o $(EXEC)
 
 clean:
-	rm -rf $(OBJ_DIR)*.o $(OBJ_DIR)*.mod $(OBJ_DIR)*_genmod.f90
+	rm -rf $(OBJ_DIR)/*.o $(OBJ_DIR)/*.mod $(OBJ_DIR)/*_genmod.f90
 
 cleanall: clean
 	rm -rf $(INST_DIR)/$(BIN)
