@@ -81,7 +81,7 @@ install: $(OBJS)
 	$(FC) $(FFLAGS) $(OBJS) $(LIBS) -o $(EXEC)
 
 clean:
-	rm -rf $(OBJ_DIR)/* *.mod *_genmod.f90
+	rm -rf $(OBJ_DIR)/* $(OBJ_DIR)/*.mod $(OBJ_DIR)/*_genmod.f90
 
 cleanall: clean
 	rm -rf $(INST_DIR)/$(BIN)
