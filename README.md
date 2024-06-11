@@ -14,11 +14,12 @@ FD: Seismic wavefield modeling using collocated grid finite difference method in
 FK: Seismic wavefield modeling using the frequency-wavenumber or propagator matrix method in three-dimensional elastic isotropic media.
 
 # Citation
-If you use this software for your researches and prepare publications, please citing at least one of the following papers:
+If you use this software in your researches and prepare publications, please cite at least one of the following papers:
 
-- Youshan Liu, Chenglong Wu, Tao Xu, Liang Zhao, Jiwen Teng. 2024. Efficient two-dimensional teleseismic wavefield hybrid simulation method 
-   for receiver function analysis. Seismological Research Letters, undergoing review.
-- Chenglong Wu, Tao Xu, Xiaobo Tian, Ross N. Mitchell, Jiyan Lin, Jianfeng Yang, Xin Wang, Zhanwu Lu. 2024. Underthrusting of Tarim lover crust beneath the Tibetan Plateau revealed by receiver function imaging. Geophysical Research Letters, 51, e2024GL108220.
+- Youshan Liu, Chenglong Wu, Tao Xu, Liang Zhao, Jiwen Teng. 2024. FDFK2D: Efficient two-dimensional teleseismic wavefield modeling
+   for receiver function analysis using a hybrid method. Seismological Research Letters, undergoing review.
+- Chenglong Wu, Tao Xu, Xiaobo Tian, Ross N. Mitchell, Jiyan Lin, Jianfeng Yang, Xin Wang, Zhanwu Lu. 2024. Underthrusting of Tarim
+   lower crust beneath the Tibetan Plateau revealed by receiver function imaging. Geophysical Research Letters, 51, e2024GL108220.
 
 # Prerequisites
 Before you compile this software, you should first install the following packages.
@@ -26,7 +27,7 @@ Before you compile this software, you should first install the following package
 - lapack
 - fftw3
 
-Usualy, these softwares can be installed by the Package Manager of your system.
+Usually, these packages can be installed by the Package Manager of your system.
 
 # Installation and Usage
 Before you installing this software, you can type `make lib` to copy the library files in the `lib` folder to `/usr/lib64` with root permission, then type `exit`.
