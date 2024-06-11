@@ -69,7 +69,7 @@ There are several auxiliary programs in `utils`.
 - create_animation -> A MATLAB script to convert snapshots to animation.
 
 # Examples
-![Animation](https://github.com/YoushanLiu/FDFK2D/blob/master/images/displacements.gif)
+![Animation](https://github.com/YoushanLiu/FDFK2D/blob/master/images/Altyn.gif)
 
 
 ![Snapshots](https://github.com/YoushanLiu/FDFK2D/blob/master/images/snapshots.png)
