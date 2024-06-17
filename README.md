@@ -74,7 +74,7 @@ There are several auxiliary programs in `utils`.
 
 ## Animation of wavefield snapshots
 ![Animation](https://github.com/YoushanLiu/FDFK2D/blob/master/images/Altyn.gif)
-
+-------
 
 ## Wavefield snapshots
 ![Snapshots](https://github.com/YoushanLiu/FDFK2D/blob/master/images/snapshots.png)
