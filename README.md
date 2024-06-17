@@ -71,6 +71,7 @@ There are several auxiliary programs in `utils`.
 - create_animation -> A MATLAB script to convert snapshots to animation.
 
 # Examples
+
 ## Animation of wavefield snapshots
 ![Animation](https://github.com/YoushanLiu/FDFK2D/blob/master/images/Altyn.gif)
 
