@@ -1,5 +1,9 @@
 ![Lanuguage](https://img.shields.io/badge/-Fortran-734f96?logo=fortran)
 ![Version](https://img.shields.io/static/v1?label=version&message=0.8&color=blue)
+![Downloads](https://img.shields.io/github/downloads/YoushanLiu/FDFK2D/total)
+![Commits](https://img.shields.io/github/commit-activity/m/YoushanLiu/FDFK2D)
+![Size](https://img.shields.io/github/languages/code-size/YoushanLiu/FDFK2D)
+![License](https://img.shields.io/github/license/YoushanLiu/FDFK2D)
 # FDFK2D
 Efficient two-dimensional teleseismic wavefiled hybrid simulation method for receiver function analysis. This software is a highly optimized Fortran package supporting parallel computing using the OpenMP, which can be used to synthetic P- and S-waves RFs.
 
