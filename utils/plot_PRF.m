@@ -21,7 +21,7 @@ tlag = (tlag_min:dt:tlag_max);
 
 
 % compute RF
-RF = makeRFitdecon(seisx(:,itr)*dt, seisz(:,itr), dt, tlag_min, tlag_max, 0.0, 8., 100, 1.e-3, 1);
+RF = makeRFitdecon(seisx(:,itr), seisz(:,itr), dt, tlag_min, tlag_max, 0.0, 8., 100, 1.e-3, 1);
 
 
 figure(1);
