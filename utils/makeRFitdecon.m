@@ -161,7 +161,7 @@ while( abs(d_error) > MINDERR  && it < ITMAX )
   oklag = find( (lags >= lag1) & (lags <= lag2) );
   [maxRW idx]= max( abs( RW(oklag) ) );
   idx = oklag(idx);
-  amp = RW(idx)/DT;
+  amp = RW(idx);
   
   % Create a spike at correct time with correct amplitude
   P0(idx) = P0(idx) + amp; 
@@ -170,7 +170,7 @@ while( abs(d_error) > MINDERR  && it < ITMAX )
   RFP = conv( P0, gaussT, 'same'); 
   
   % Predict numerator by convolving with unfiltered full denominator
-  UP = conv( WIN(1:ntin), RFP, 'same')*DT;  % predicted U
+  UP = conv( WIN(1:ntin), RFP, 'same');  % predicted U
 
 %   % Uncomment following to view progress
 %     if( ISVB ),
