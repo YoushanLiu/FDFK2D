@@ -20,7 +20,7 @@ tlag_max = 0.6*Tmax + tlag_min;
 tlag = (tlag_min:dt:tlag_max);
 
 % compute RF
-RF = makeRFitdecon(uz(:,itr)*dt, ux(:,itr), dt, tlag_min, tlag_max, 0.0, 8., 100, 1.e-3, 1);
+RF = makeRFitdecon(uz(:,itr), ux(:,itr), dt, tlag_min, tlag_max, 0.0, 8., 100, 1.e-3, 1);
 
 
 figure(1);
