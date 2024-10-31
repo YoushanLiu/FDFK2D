@@ -15,7 +15,7 @@ ifeq ($(FC),ifort)
 else ifeq ($(FC),gfortran)
 	FFLAGS = -O3 -Ofast -fopenmp -g -funroll-loops -malign-double -ffast-math -mtune=native
 else
-	FFLAGS = -O3 -fast -mp -m64 -Mpreprocess -Mnobounds -Mautoinline -Mcache_align -Mfma -Mprefetch -Munroll -Mdaz -mcmodel=medium -Mmpi=mpich2 -flushz -Mmavx
+	FFLAGS = -O3 -fast -mp -m64 -Mpreprocess -Mnobounds -Mautoinline -Mcache_align -Mfma -Mprefetch -Munroll -Mdaz -mcmodel=medium -Mflushz -Mmavx
 endif
 
 LIBS = -lfftw3 -llapack -lblas -lHybrid -lPML -lFK3D
