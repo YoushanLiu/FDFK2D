@@ -7,24 +7,18 @@ SRC_DIR = ./
 
 
 FC = ifort
-FC = gfortran
-FC = pgfortran
+#FC = gfortran
 
 
 ifeq ($(FC),ifort)
 	FFLAGS = -O3 -qopenmp -xHost -unroll -ftz -fma -fpp -fpe0 -assume buffered_io -assume byterecl -align sequence -diag-disable 6477 -implicitnone -gen-interfaces -mcmodel=large -shared-intel -arch AVX
-	LIBS = -lfftw3 -llapack -lblas -L../lib_intel -lHybrid -lPML -lFK3D
 else ifeq ($(FC),gfortran)
 	FFLAGS = -O3 -Ofast -fopenmp -g -funroll-loops -malign-double -ffast-math -mtune=native
-	LIBS = -lfftw3 -llapack -lblas -L../lib_gnu -lHybrid -lPML -lFK3D
 else
-	FFLAGS = -O3 -fast -mp -m64 -Mpreprocess -Mnobounds -Mautoinline -Mcache_align -Mfma -Mprefetch -Munroll -Mdaz -mcmodel=medium -Mflushz
-	LIBS = -lfftw3 -llapack -lblas -L../lib_pgi -lHybrid -lPML -lFK3D
+	FFLAGS = -O3 -fast -mp -m64 -Mpreprocess -Mnobounds -Mautoinline -Mcache_align -Mfma -Mprefetch -Munroll -Mdaz -mcmodel=medium -flushz
 endif
 
-#LIBS = -lfftw3 -llapack -lblas -lHybrid -lPML -lFK3D
-#LIBS = -lfftw3 -llapack -lblas -L../release_lib/ libHybrid.a libPML.a libFK3D.a
-#LIBS = -lfftw3 -llapack -lblas -L../release_lib -lHybrid -lPML -lFK3D
+LIBS = -lfftw3 -llapack -lblas -lHybrid -lPML -lFK3D
 
 
 OBJEXT = o
@@ -45,7 +39,6 @@ else
 	# ifort or pgf90
 	FFLAGS += -module $(OBJ_DIR)
 endif
-
 
 FFLAGS += -I$(OBJ_DIR)
 
@@ -68,7 +61,7 @@ OBJS := $(addprefix $(OBJ_DIR)/,$(OBJS))
 
 
 
-all: build
+all: lib build
 
 
 lib:
