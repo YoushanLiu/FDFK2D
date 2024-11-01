@@ -18,7 +18,7 @@ else
 	FFLAGS = -O3 -fast -mp -m64 -Mpreprocess -Mnobounds -Mautoinline -Mcache_align -Mfma -Mprefetch -Munroll -Mdaz -mcmodel=medium -flushz
 endif
 
-LIBS = -lfftw3 -llapack -lblas -lHybrid -lPML -lFK3D
+LIBS = -lHybrid -lPML -lFK3D -llapack -lblas -lfftw3
 
 
 OBJEXT = o
