@@ -61,23 +61,23 @@ OBJS := $(addprefix $(OBJ_DIR)/,$(OBJS))
 
 
 
-all: lib build
+all: lib install
 
 
 lib:
 	@if [ "$(FC)" = "ifort" ]; then \
 		echo "You are using $(FC) compiler"; \
-		cp ../lib_intel/*.so /usr/lib64; \
+		cp ../lib_intel/*.so /usr/lib; \
 	elif [ "$(FC)" = "gfortran" ]; then \
 		echo "You are using $(FC) compiler"; \
-		cp ../lib_gnu/*.so /usr/lib64; \
+		cp ../lib_gnu/*.so /usr/lib; \
 	else \
 		echo "You are using $(FC) compiler"; \
-		cp ../lib_pgi/*.so /usr/lib64; \
+		cp ../lib_pgi/*.so /usr/lib; \
 	fi
 
 
-build: $(OBJS)
+install: $(OBJS)
 	-rm -rf $(EXEC)
 	$(FC) $(FFLAGS) $(OBJS) $(LIBS) -o $(EXEC)
 
