@@ -1,4 +1,4 @@
-![Logo](https://github.com/YoushanLiu/FDFK2D/blob/master/images/logo.png)
+![Logo](https://github.com/YoushanLiu/FDFK2D/blob/master/images/FDFK2D.png)
 ![Lanuguage](https://img.shields.io/badge/-Fortran-734f96?logo=fortran)
 ![Version](https://img.shields.io/static/v1?label=version&message=0.8&color=blue)
 ![Downloads](https://img.shields.io/github/downloads/YoushanLiu/FDFK2D/total)
