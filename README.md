@@ -50,7 +50,7 @@ Then, you can run the tests.
 # Documentation
 All input files are placed in a folder, such as `input`.
 In this folder, there are six files.
-- `inpar.data`         -> list of Filenames
+- `inpar.data`         -> list of filenames
 - `FD_model.dat`       -> Parameters for FD modeling.
 - `Source.dat`         -> Parameters for an earthquake. You can use the TauP software to compute the ray parameter of an event.
 - `Receiver.dat`       -> Parameters for stations.
