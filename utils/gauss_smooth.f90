@@ -1,7 +1,5 @@
 program gauss_smooth
 
-!use dflib
-
 implicit none
 
 integer imethod, nlen
@@ -37,19 +35,19 @@ real lambdax, lambdaz
 real(8), parameter :: PI = 4.d0*datan(1.d0)
 
 
-logical existed
+logical existing
 
 
-narg = iargc()
-!narg = get_command_count()
+!narg = iargc()
+narg = get_command_count()
 
 
-if(narg < 1)then
+if (narg < 1) then
    !write(*,"(A)") 'At least the filename is required '
    !write(*,'(A)') ' filename,  lambdax,  lambdaz,  dx,  dz,  iz_first,  iz_end,  ix_first,  ix_end,  method '
    print*, 'Usage: '
    print*, 'Author: Youshan Liu'
-   write(*,'(A)') ' gauss_smooth(filename, lambdax, lambdaz, dx, dz, iz_first, iz_end, ix_first, ix_end, method)'
+   print*, ' gauss_smooth(filename, lambdax, lambdaz, dx, dz, iz_first, iz_end, ix_first, ix_end, method)'
    print*, 'filename: input filename (mandatory)'
    print*, 'lambdax: horizontal correlation length (optional)'
    print*, 'lambdaz: vertical correlation length (optional)'
@@ -63,7 +61,7 @@ if(narg < 1)then
    print*, '    when ix_first <= 0 or ix_first > nx, iz_first will be set 1'
    print*, 'ix_end: lower bound of the smooth window in horizontal (default nx, optional)'
    print*, '    when ix_end   <= 0 or ix_end   > nx, iz_first will be set nx'
-   print*, 'method: gauss or triangular (default 0 for gaussian smooth otherwise 1 for triangular smooth, optional)'
+   print*, 'method: gaussian or triangular (default 0 for gaussian smooth otherwise 1 for triangular smooth, optional)'
    write(*,'(A)')
    stop
 end if
@@ -315,7 +313,7 @@ if (0 == imethod) then
 
    nwx = ceiling(3.6*lambdax/dx)
    nwz = ceiling(3.6*lambdaz/dz)
-   allocate(w(-nwx:nwx,-nwz:nwz))
+   allocate(w(-nwz:nwz,-nwx:nwx))
 
    w = 0.d0
    !$omp parallel default(shared) private(j, k, x, z)
@@ -324,8 +322,8 @@ if (0 == imethod) then
       x = j*dx
       do k = -nwz, nwz, 1
          z = k*dz
-         w(j,k) = dexp( -0.5d0*( (x/lambdax)*(x/lambdax) + (z/lambdaz)*(z/lambdaz) ) )
-         !w(j,k) = exp(-dble(j*j*dx2+k*k*dz2)*sigma)
+         w(k,j) = dexp( -0.5d0*( (x/lambdax)*(x/lambdax) + (z/lambdaz)*(z/lambdaz) ) )
+         !w(k,j) = exp(-dble(j*j*dx2+k*k*dz2)*sigma)
       end do
    end do
    !$omp end do
@@ -336,7 +334,7 @@ else if (1 == imethod) then
 
    nwx = ceiling(2.1*lambdax/dx)
    nwz = ceiling(2.1*lambdaz/dz)
-   allocate(w(-nwx:nwx,-nwz:nwz))
+   allocate(w(-nwz:nwz,-nwx:nwx))
 
    w = 0.d0
    sigma2 = dble(1.8d0*ceiling(lambdaz/dz))
@@ -344,27 +342,27 @@ else if (1 == imethod) then
    !$omp do schedule(dynamic)
    do j = -nwx, nwx, 1
       do k = -nwz, nwz, 1
-         w(j,k) = dble(nwz - abs(k)) / sigma2
+         w(k,j) = dble(nwz - abs(k)) / sigma2
       end do
       !do k = -nwz, 0, 1
-      !   w(j,k) = dble(nwz+k)/sigma2
+      !   w(k,j) = dble(nwz+k)/sigma2
       !end do
       !do k = 1, nwz, 1
-      !   w(j,k) = dble(nwz-k)/sigma2
+      !   w(k,j) = dble(nwz-k)/sigma2
       !end do
    end do
    !$omp end do
    sigma2 = dble(1.8d0*ceiling(lambdax/dx))
    !$omp end parallel
-   do k = -nwz, nwz, 1
-      do j = -nwx, nwx, 1
-         w(j,k) = dble(nwx - abs(j)) / sigma2 * w(j,k)
+   do j = -nwx, nwx, 1
+      do k = -nwz, nwz, 1
+         w(k,j) = dble(nwx - abs(j)) / sigma2 * w(j,k)
       end do
       !do j = -nwx, 0, 1
-      !   w(j,k) = dble(j+nwx)/dble(nwx)*w(j,k)
+      !   w(k,j) = dble(j+nwx)/dble(nwx)*w(j,k)
       !end do
       !do j = 1, nwx, 1
-      !   w(j,k) = dble(nwx-j)/dble(nwx)*w(j,k)
+      !   w(k,j) = dble(nwx-j)/dble(nwx)*w(j,k)
       !end do
    end do
    w = w/sum(w)
@@ -390,11 +388,11 @@ do i = nx0, nx1, 1
             if(k1 > nx) k1 = 2*nx-k1+1
             if(k2 < 1)  k2 = 1-k2
             if(k2 > nz) k2 = 2*nz-k2+1
-            mywgt=mywgt + w(i1,j1)
-            mysum=mysum + w(i1,j1)*vel(k1,k2)
+            mywgt=mywgt + w(j1,i1)
+            mysum=mysum + w(j1,i1)*vel(k2,k1)
          end do
       end do
-      vel2(i,j) = mysum / mywgt
+      vel2(j,i) = mysum / mywgt
    end do
 end do
 !$omp end do
@@ -404,8 +402,8 @@ end do
 nlen = index(infile,'.') - 1
 write(outfile,'(A, A)') infile(1:nlen), '_smooth.su'
 
-inquire(file=outfile, exist=existed)
-if(existed)then
+inquire(file=outfile, exist=existing)
+if (existing) then
    open(unit=11, file=outfile)
    close(11, status='delete')
 end if
@@ -418,7 +416,7 @@ head(59) = dz*1e3
 iunit = 25
 open(unit=iunit, file=outfile, form='unformatted', access='stream', status='unknown')
    do j = 1, nx, 1
-      write(iunit) head, (sngl(vel2(j,k)), k = 1, nz)
+      write(iunit) head, (sngl(vel2(k,j)), k = 1, nz)
    end do
 close(iunit)
 
@@ -429,7 +427,7 @@ deallocate(w,vel,vel2)
 
 !100 format(A, F12.2, F12.2, I8, F10.3, F10.3)
 100 format('file = ', A, ' ; lambdax = ', F0.2, ' ; lambdaz = ', F0.2, ' ; dx = ', F0.2, ' ; dz = ', F0.2, / &
-'iz_first = ', I0, ' ; iz_end = ', I0, ' ; ix_first = ', I0, ' ; ix_end = ', I0, ' ; method = ', A)
+       'iz_first = ', I0, ' ; iz_end = ', I0, ' ; ix_first = ', I0, ' ; ix_end = ', I0, ' ; method = ', A)
 200 format('After gauss_smooth: maximum absolute error = ', f0.2,' ; maxmum relative error = ', f0.2,' %')
 
 end program gauss_smooth
@@ -437,20 +435,22 @@ end program gauss_smooth
 !=============================================================
 subroutine get_parameter(ntrace, ntime, filename)
 
-!use ifport
-
 implicit none
 
 integer ntrace, ntime
 integer ier, iskip, iunit
 
+#ifdef __INTEL_COMPILER
 integer fseek, ftell
+#else
+integer ftell
+#endif
 
 integer(8) nbytes
 
 integer(2) head(1:120)
 
-character*(*) filename
+character(*) filename
 
 
 head = 0
@@ -458,14 +458,16 @@ iunit = 21
 open(unit=iunit, file=filename, status='unknown', form='unformatted', access='stream')
    read(iunit) head
    ntime = head(58)
-   !ier = fseeki8(iunit, 0, 2)
-   !nbytes = ftelli8(iunit)
+#ifdef __INTEL_COMPILER   
    ier = fseek(iunit, 0, 2)
+#else
+   call fseek(iunit, 0, 2, ier)
+#endif
    nbytes = ftell(iunit)
    ntrace = int8(nbytes/(240 + 4*int8(ntime)))
 close(iunit)
 
-write(*,'(A, I0)') 'The number of trace is: ', ntrace
+write(*,'(A, I0)') 'The number of traces is: ', ntrace
 write(*,'(A, I0)') 'The number of sampling points is: ', ntime
 write(*,*)
 
@@ -480,17 +482,17 @@ integer ntrace, ntime
 
 integer(2) head(1:120)
 
-character*(*) filename
+character(*) filename
 
 real dt
-real seis(1:ntrace, 1:ntime)
+real seis(1:ntime,1:ntrace)
 
 
 iunit = 21
 open(unit=iunit, file=filename, status='unknown', form='unformatted', access='stream')
 
    do itr = 1, ntrace, 1
-      read(iunit) head, (seis(itr,it), it = 1, ntime)
+      read(iunit) head, (seis(it,itr), it = 1, ntime)
    end do
 
 close(iunit)
