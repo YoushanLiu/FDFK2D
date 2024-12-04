@@ -49,7 +49,7 @@ Now, you can install this software as follows.
 - `cd ../examples/test1`
 
 Then, you can run the tests.
-- `./run_this_example`
+- `./run_this_example.sh`
 
 # Documentation
 All input files are placed in a folder, such as `input`.
