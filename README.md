@@ -67,7 +67,7 @@ The parameters are self-explaining. All physical quantities are international un
 
 # Utils
 There are several auxiliary programs in `utils`.
-- gauss_smooth.f90 -> A Fortran program to smooth the velocity model. Usually, the geological structure in real world is relatively smooth. You can use this program to smooth your velocity models. It provides two options to smooth, i.e., gaussian smooth and triangular smooth, the latter may has better structure-preserving characteristics. You can just smooth part of the model. You can see the usage by typing `./gauss_smooth`.
+- gauss_smooth.f90 -> A Fortran program to smooth the velocity model. Usually, the geological structure in real world is relatively smooth. You can use this program to smooth your velocity models. It provides two options to smooth, i.e., gaussian smooth and triangular smooth, the latter may has better structure-preserving characteristics. You can just smooth part of the model by setting parameters appropriately. You can see the usage by typing `./gauss_smooth`.
 - readsu.m         -> A MATLAB script to read velocity model in SU format (i.e., the SEGY format after removing 3200 bytes textual header and 400 bytes binary header).
 - writesu.m        -> A MATLAB script to write velocity model in SU format.
 - makeRFitdecon.m  -> A MATLAB script to compute RFs using time-domain iterative deconvolution written by Bailey, et al. (2010).
