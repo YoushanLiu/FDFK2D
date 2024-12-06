@@ -32,7 +32,7 @@ If you use this software in your researches and prepare publications, please cit
    lower crust beneath the Tibetan Plateau revealed by receiver function imaging. Geophysical Research Letters, 51, e2024GL108220, doi: 10.1029/2024GL108220.
 
 # Prerequisites
-Before you compile this software, you should first install the following packages.
+Before you compile this software, you should first install the following packages:
 - blas
 - lapack
 - fftw3
