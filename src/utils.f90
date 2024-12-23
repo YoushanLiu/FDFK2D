@@ -48,61 +48,61 @@ integer(8) days, days_start, days_end
 logical is_swap
 
 
-is_swap=.false.
-if(dtm_start(1) > dtm_end(1))then
+if (dtm_start(1) > dtm_end(1)) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
+   is_swap = .true.
 else
-   is_swap=.false.
+   is_swap = .false.
 end if
 
-if( (dtm_start(1) == dtm_end(1)) .and. (dtm_start(2) > dtm_end(2)) .and. is_swap)then
+if ((dtm_start(1) == dtm_end(1)) .and. (dtm_start(2) > dtm_end(2)) .and. is_swap) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
 else
-   is_swap=.false.
+   is_swap = .false.
 end if
 
-if( (dtm_start(2) == dtm_end(2)) .and. (dtm_start(3) > dtm_end(3)) .and. is_swap)then
+if ((dtm_start(2) == dtm_end(2)) .and. (dtm_start(3) > dtm_end(3)) .and. is_swap) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
 else
-   is_swap=.false.
+   is_swap = .false.
 end if
 
-if( (dtm_start(3) == dtm_end(3)) .and. (dtm_start(5) > dtm_end(5)) .and. is_swap)then
+if ((dtm_start(3) == dtm_end(3)) .and. (dtm_start(5) > dtm_end(5)) .and. is_swap) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
 else
-   is_swap=.false.
+   is_swap = .false.
 end if
 
-if( (dtm_start(5) == dtm_end(5)) .and. (dtm_start(6) > dtm_end(6)) .and. is_swap)then
+if ((dtm_start(5) == dtm_end(5)) .and. (dtm_start(6) > dtm_end(6)) .and. is_swap) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
 else
-   is_swap=.false.
+   is_swap = .false.
 end if
 
-if( (dtm_start(6) == dtm_end(6)) .and. (dtm_start(7) > dtm_end(7)) .and. is_swap)then
+if ((dtm_start(6) == dtm_end(6)) .and. (dtm_start(7) > dtm_end(7)) .and. is_swap) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
 else
-   is_swap=.false.
+   is_swap = .false.
 end if
 
-if( (dtm_start(7) == dtm_end(7)) .and. (dtm_start(8) > dtm_end(8)) .and. is_swap)then
+if ((dtm_start(7) == dtm_end(7)) .and. (dtm_start(8) > dtm_end(8)) .and. is_swap) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
 else
-   is_swap=.false.
+   is_swap = .false.
 end if
 
 year_start = dtm_start(1)
@@ -128,8 +128,8 @@ months_start(10) = 31; months_start(11) = 30; months_start(12) = 31
 
 months_end = months_start
 
-if( is_leap_year(year_start) ) months_start(2) = months_start(2) + 1
-if( is_leap_year(year_end) ) months_end(2) = months_end(2) + 1
+if (is_leap_year(year_start)) months_start(2) = months_start(2) + 1
+if (is_leap_year(year_end)) months_end(2) = months_end(2) + 1
 
 iminyear = min(year_start,year_end)
 
@@ -137,7 +137,7 @@ days_start = 0
 do iyear = iminyear, year_start-1, 1
 
    days_start = days_start + 365
-   if( is_leap_year(year_start) ) days_start = days_start + 366
+   if (is_leap_year(year_start)) days_start = days_start + 366
 
 end do
 days_start = days_start + sum(months_start(1:month_start-1))
@@ -147,7 +147,7 @@ days_end = 0
 do iyear = iminyear, year_end-1, 1
 
    days_end = days_end + 365
-   if( is_leap_year(iyear) ) days_end = days_end + 366
+   if (is_leap_year(iyear)) days_end = days_end + 366
 
 end do
 days_end = days_end + sum(months_end(1:month_end-1))
@@ -163,22 +163,22 @@ min_incr = min_end - min_start
 sec_incr = sec_end - sec_start
 millisec_incr = millisec_end - millisec_start
 
-if( millisec_incr < 0 )then
+if (millisec_incr < 0) then
    sec_incr = sec_incr - 1
    millisec_incr = millisec_incr + 1000
 end if
 
-if( sec_incr < 0 )then
+if (sec_incr < 0) then
    min_incr = min_incr - 1
    sec_incr = sec_incr + 60
 end if
 
-if( min_incr < 0 )then
+if (min_incr < 0 ) then
    hour_incr = hour_incr - 1
    min_incr = min_incr + 60
 end if
 
-if( hour_incr < 0 )then
+if (hour_incr < 0 ) then
    day_incr = day_incr - 1
    hour_incr = hour_incr + 24
 end if
@@ -204,7 +204,7 @@ implicit none
 integer(2), intent(in) :: iyear
 
 is_leap_year = .false.
-if( ( (0 /= mod(iyear,100)) .and. (0 == mod(iyear,4)) ) .or. (0 == mod(iyear,400)) ) is_leap_year = .true.
+if (((0 /= mod(iyear,100)) .and. (0 == mod(iyear,4)) ) .or. (0 == mod(iyear,400))) is_leap_year = .true.
 
 return
 
