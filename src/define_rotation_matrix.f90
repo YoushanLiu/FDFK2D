@@ -13,7 +13,7 @@ real(8) lat, lon, az, theta
 real(8) sin_az, cos_az, factor1, factor2
 real(8) sin_theta, cos_theta, sin_phi, cos_phi
 
- !real(8), dimension(3,3) :: R, R1, R2, R3
+!real(8), dimension(3,3) :: R, R1, R2, R3
 
 
 az = dble(az_org)*deg2rad
@@ -61,8 +61,8 @@ lon = dble(lon_org)*deg2rad
 
 ! or
 sin_theta = sin(lat); cos_theta = cos(lat)
-sin_phi = sin(lon); cos_phi = cos(lon)
-sin_az = sin(az); cos_az = cos(az)
+sin_phi   = sin(lon); cos_phi   = cos(lon)
+sin_az    = sin(az) ; cos_az    = cos(az)
 factor1 = sin_theta*cos_phi
 factor2 = sin_theta*sin_phi
 rotate_matrix(1,1) = -sin_az*sin_phi + cos_az*factor1
