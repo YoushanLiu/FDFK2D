@@ -1,9 +1,8 @@
-!All copyright reserved (c)
-!E-mail: ysliu@mail.iggcas.ac.cn
-!QQ: 826897665
-!Institute of Geology and Geophysics, Chinese Academy of Sciences
-!Teleseismic wavefield modeling in 2-D istropic media using a hybrid method
-!that coupling the finite difference (FD) method and frequency-wavenumber (FK) method
+! All copyright reserved (c)
+! E-mail: ysliu@mail.iggcas.ac.cn
+! Institute of Geology and Geophysics, Chinese Academy of Sciences
+! Teleseismic wavefield modeling in 2-D isotropic media using a hybrid method
+! that couples the Finite Difference (FD) method and Frequency-Wavenumber (FK) method
 !
 ! Coordinates system
 !
@@ -97,7 +96,7 @@ call get_command_argument(4, fsis)
 
 write(*,"(A)")
 write(*,"(A)") 'This program simulates teleseismic wavefields with a hybrid method that '
-write(*,"(A)") 'couples the Finite Difference Method (FD) with the Frequency-Wavenumber (FK) methods'
+write(*,"(A)") 'couples the Finite Difference Method (FD) with the Frequency-Wavenumber (FK) Method'
 write(*,"(A)") 'Author: Youshan Liu [at] Institue of Geology and Geophysics, Chinese Academy of Sciences'
 write(*,"(A)") 'All Copyright Reserved (C) ['//trim(ver)//']'
 write(*,"(A)")
@@ -386,7 +385,7 @@ call compute_backazimuth_grids(nx+2*npml, coordx, evla, evlo, bazs)
 bazs = bazs - az_org*deg2rad
 if (abs(cos(sum(bazs)/(nx+2*npml+1))) < 0.5d0*sqrt(3.d0)) then
    write(*,"(A)") 'WRANING: It cannot accurately simulate the teleseismic wavefield using a 2D code'
-   write(*,"(A)") 'when the angle between azimuth of the profile and backazimuth of station to event is large than 30 [deg].'
+   write(*,"(A)") 'when the angle between azimuth of the profile and back-azimuth of station to event is large than 30 [deg].'
    write(*,"(A)", advance='no') 'Do you want to continue ? [Y/N]: '
    read(*,*) answer
    ix = index(answer,'N')
