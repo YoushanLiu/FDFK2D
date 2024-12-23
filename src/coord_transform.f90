@@ -36,7 +36,7 @@ call geogr2cart(lat_org, lon_org, xo, yo, zo)
 
 
 
-! grids (x, y, z) to (theta, phi, r)
+! grids (X, Y, Z) to (theta, phi, r)
 do ix = 1, nx, 1
 
    XYZ(1,1) = coordx(ix)
