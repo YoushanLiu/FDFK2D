@@ -21,7 +21,7 @@ open(unit=iunit, file=finpar, status='old')
    do
 
       read(iunit, *, iostat=ioer)
-      if(0 /= ioer) exit
+      if (0 /= ioer) exit
       nfile = nfile + 1
 
    end do
