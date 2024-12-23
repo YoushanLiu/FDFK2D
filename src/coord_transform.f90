@@ -24,7 +24,6 @@ real(8) xo, yo, zo
 real(8) stla, stlo, baz
 
 real(8) XYZ(3,1)
-real(8) xyzr(3,1)
 
 
 
@@ -44,11 +43,11 @@ do ix = 1, nx, 1
    XYZ(3,1) = 0.d0
 
    ! from local cartesian coordinates to spherical cartesian coordinates
-   xyzr = matmul(inv_rotate_matrix, XYZ)
+   XYZ = matmul(inv_rotate_matrix, XYZ)
+   x = XYZ(1,1) + xo
+   y = XYZ(2,1) + yo
+   z = XYZ(3,1) + zo
 
-   x = xyzr(1,1) + xo
-   y = xyzr(2,1) + yo
-   z = xyzr(3,1) + zo
    ! from spherical cartesian coordinates to geographic coordinates
    call cart2geogr(x, y, z, stla, stlo)
 
