@@ -21,7 +21,7 @@ lat = dble(lat_org)*deg2rad
 lon = dble(lon_org)*deg2rad
 
 
-!! Spheric cartesian coordinates to local cartesian coordinates at station
+!! Spherical cartesian coordinate to local cartesian coordinate at station
 !! (x, y, z) -> (x', y', z')
 !theta = PIover2 + lon
 !R1(1,1) =  cos(theta); R1(1,2) = sin(theta); R1(1,3) = 0.d0
