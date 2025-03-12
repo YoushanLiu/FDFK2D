@@ -26,8 +26,8 @@ FK: Seismic wavefield modeling using the frequency-wavenumber or propagator matr
 # Citation
 If you use this software in your researches and prepare publications, please cite at least one of the following papers:
 
-- Youshan Liu, Chenglong Wu, Tao Xu, Liang Zhao, Jiwen Teng. 2024. FDFK2D: Efficient two-dimensional teleseismic wavefield modeling
-   for receiver function analysis using a hybrid method. Seismological Research Letters, XX, 1–18, doi: 10.1785/0220240231.
+- Youshan Liu, Chenglong Wu, Tao Xu, Liang Zhao, Jiwen Teng. 2025. FDFK2D: Efficient two-dimensional teleseismic wavefield modeling
+   for receiver function analysis using a hybrid method. Seismological Research Letters, 96(2A), 1163–1180, doi: 10.1785/0220240231.
 - Chenglong Wu, Tao Xu, Xiaobo Tian, Ross N. Mitchell, Jiyan Lin, Jianfeng Yang, Xin Wang, Zhanwu Lu. 2024. Underthrusting of Tarim
    lower crust beneath the Tibetan Plateau revealed by receiver function imaging. Geophysical Research Letters, 51, e2024GL108220, doi: 10.1029/2024GL108220.
 
