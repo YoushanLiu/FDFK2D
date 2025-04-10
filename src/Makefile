@@ -6,16 +6,19 @@ OBJ_DIR = ../obj
 SRC_DIR = ./
 
 
-FC = ifort
-#FC = gfortran
+FC = ifort       # Intel Fortran Compiler
+#FC = gfortran    # GNU Fortran Compiler
+#FC = pgfortran   # PGI Fortran Compiler
 
 
 ifeq ($(FC),ifort)
 	FFLAGS = -O3 -qopenmp -xHost -unroll -ftz -fma -fpp -fpe0 -assume buffered_io -assume byterecl -align sequence -diag-disable 6477 -implicitnone -gen-interfaces -mcmodel=large -shared-intel -arch AVX
 else ifeq ($(FC),gfortran)
 	FFLAGS = -O3 -Ofast -fopenmp -g -funroll-loops -malign-double -ffast-math -mtune=native
-else
+else ifeq ($(FC),pgfortran)
 	FFLAGS = -O3 -fast -mp -m64 -Mpreprocess -Mnobounds -Mautoinline -Mcache_align -Mfma -Mprefetch -Munroll -Mdaz -mcmodel=medium -flushz
+else
+	@echo "Unsuported Compiler!"
 endif
 
 LIBS = -lHybrid -lPML -lFK3D -llapack -lblas -lfftw3
