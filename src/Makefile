@@ -18,7 +18,8 @@ else ifeq ($(FC),gfortran)
 else ifeq ($(FC),pgfortran)
 	FFLAGS = -O3 -fast -mp -m64 -Mpreprocess -Mnobounds -Mautoinline -Mcache_align -Mfma -Mprefetch -Munroll -Mdaz -mcmodel=medium -flushz
 else
-	@echo "Unsuported Compiler!"
+	FFLAGS = -O2
+$(info Unsuported Compiler!)
 endif
 
 LIBS = -lHybrid -lPML -lFK3D -llapack -lblas -lfftw3
