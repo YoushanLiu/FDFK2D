@@ -7,11 +7,14 @@ SRC_DIR = ./
 
 
 FC = ifort       # Intel Fortran Compiler
+#FC = ifx         # Intel OneAPI Fortran Compiler
 #FC = gfortran    # GNU Fortran Compiler
 #FC = pgfortran   # PGI Fortran Compiler
 
 
 ifeq ($(FC),ifort)
+	FFLAGS = -O3 -qopenmp -xHost -unroll -ftz -fma -fpp -fpe0 -assume buffered_io -assume byterecl -align sequence -diag-disable 6477 -implicitnone -gen-interfaces -mcmodel=large -shared-intel -arch AVX
+else ifeq ($(FC),ifx)
 	FFLAGS = -O3 -qopenmp -xHost -unroll -ftz -fma -fpp -fpe0 -assume buffered_io -assume byterecl -align sequence -diag-disable 6477 -implicitnone -gen-interfaces -mcmodel=large -shared-intel -arch AVX
 else ifeq ($(FC),gfortran)
 	FFLAGS = -O3 -Ofast -fopenmp -g -funroll-loops -malign-double -ffast-math -mtune=native
