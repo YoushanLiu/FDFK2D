@@ -1,7 +1,6 @@
 EXEC = ~/bin/gauss_smooth
 
 OBJ_DIR = .
-SRC_DIR = ./
 
 
 FC = ifort
