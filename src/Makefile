@@ -1,4 +1,4 @@
-# Makefile for Teleseismic Wavefield modeling to be release
+# Makefile for Teleseismic Wavefield modeling to be released
 
 EXEC = ~/bin/FDFK2D
 
