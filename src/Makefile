@@ -3,7 +3,6 @@
 EXEC = ~/bin/FDFK2D
 
 OBJ_DIR = ../obj
-SRC_DIR = ./
 
 
 FC = ifort       # Intel Fortran Compiler
