@@ -2,7 +2,7 @@ function [seis, nt, nx, dt, errflag] = readsu(infile, domain)
 %
 %readsu   read su format file
 %
-%   writen by Youshan Liu
+%   written by Youshan Liu
 %
 %   infile:   filename
 %   seis:     array of the data
