@@ -75,6 +75,9 @@ lib:
 	@if [ "$(FC)" = "ifort" ]; then \
 		echo "You are using $(FC) compiler"; \
 		cp ../lib_intel/*.so /usr/lib; \
+	elif [ "$(FC)" = "ifx" ]; then \
+		echo "You are using $(FC) compiler"; \
+		cp ../lib_intel/*.so /usr/lib; \
 	elif [ "$(FC)" = "gfortran" ]; then \
 		echo "You are using $(FC) compiler"; \
 		cp ../lib_gnu/*.so /usr/lib; \
@@ -89,10 +92,10 @@ install: $(OBJS)
 	$(FC) $(FFLAGS) $(OBJS) $(LIBS) -o $(EXEC)
 
 clean:
-	rm -rf $(OBJ_DIR)/* *.mod *_genmod.f90
+	-rm -rf $(OBJ_DIR)/* *.mod *_genmod.f90
 
 cleanall: clean
-	rm -rf $(INST_DIR)/$(BIN)
+	-rm -rf $(INST_DIR)/$(BIN)
 
 
 $(OBJ_DIR)/%.o: %.f90
