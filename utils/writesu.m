@@ -2,7 +2,7 @@ function writesu(outfile, seis, dt, domain)
 %
 %writesu   write data into su format file
 %
-%   writen by Youshan Liu
+%   written by Youshan Liu
 %
 %   seis:     array of the data
 %   outfile:  filename
