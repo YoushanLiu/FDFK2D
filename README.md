@@ -8,7 +8,7 @@
 ![License](https://img.shields.io/github/license/YoushanLiu/FDFK2D)
 ![Stars](https://img.shields.io/github/stars/YoushanLiu/FDFK2D)
 ![Forks](https://img.shields.io/github/forks/YoushanLiu/FDFK2D)
-  <a href="https://github.com/YoushanLiu/FDFK2D/edit/master">
+  <a href="https://github.com/YoushanLiu/FDFK2D">
     <img src="https://github.com/YoushanLiu/FDFK2D/edit/master/total?style=for-the-badge" alt="Downloads">
   </a>
 # FDFK2D
