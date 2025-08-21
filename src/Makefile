@@ -32,7 +32,7 @@ LINKOPT =
 
 UNAME := $(shell uname -a)
 ifeq ($(findstring CYGWIN_NT, $(UNAME)), CYGWIN_NT)
-   OBJ = obj
+   OBJEXT = obj
    LINKOPT = /F150994944
    FFLAGS = /nologo /QxHost /fpp /O3 /Qparallel /Qopt-matmul /Qopenmp /Qmkl:parallel
 endif
