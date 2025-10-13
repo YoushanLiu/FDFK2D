@@ -74,7 +74,7 @@ call date_and_time(mydate, mytime, myzone, dtm_start)
 
 ! parse command line parameters
 nargin = command_argument_count()
-if (nargin < 4) then
+if (nargin < 3) then
    write(*,"(A)") 'FDFK2D '//trim(ver)
    write(*,"(A)") './FDFK2D ./inpath inpar.dat ./outpath seism'
    write(*,"(A)")
@@ -84,7 +84,9 @@ end if
 call get_command_argument(1, prefix)
 call get_command_argument(2, finpar)
 call get_command_argument(3, outpath)
-call get_command_argument(4, fsis)
+if (nargin > 3) then
+	call get_command_argument(4, fsis)
+end if
 
 
 !! for test
@@ -585,3 +587,4 @@ deallocate(buz1b, buz2b, buz3b)
 
 end subroutine wavefieldsimulation
 !!=================================================================!!
+
