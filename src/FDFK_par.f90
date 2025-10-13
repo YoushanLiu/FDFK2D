@@ -7,7 +7,7 @@ character(256) :: prefix = ''
 character(256) :: outpath = ''
 
 ! prefix of filename for seismograms
-character(256) :: fsis = ''
+character(256) :: fsis = 'seis'
 
 ! filenames of FK, Vp and Vs, models
 character(256) :: fFKmodel_left = '', fFKmodel_right = '', fVpmodel = '', fVsmodel = ''
@@ -31,3 +31,4 @@ real(8), dimension(3,3) :: rotate_matrix, inv_rotate_matrix
 
 
 end module FDFK_par
+
