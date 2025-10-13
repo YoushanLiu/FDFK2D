@@ -179,7 +179,7 @@ if (present(az)) then
    rhs1 = (a-dd)*(a-dd) + (b-ee)*(b-ee) + c*c - 2.d0
    rhs2 = (a-gg)*(a-gg) + (b-hh)*(b-hh) + (c-kk)*(c-kk) - 2.d0
    daz = atan2(rhs1,rhs2)
-   if(daz < 0.d0) daz = daz+ twoPI
+   if (daz < 0.d0) daz = daz+ twoPI
    az = daz*rad2deg
 end if
 !
@@ -268,3 +268,4 @@ end subroutine cart2geogr
 
 
 end module calc_azimuth
+
