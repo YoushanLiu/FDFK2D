@@ -26,7 +26,7 @@ FK: Seismic wavefield modeling using the frequency-wavenumber or propagator matr
 
 # Coordinate System
 o
-   + ----------------------------> x
+   + ----------------------------> x  
   |  
   |  
   |  
