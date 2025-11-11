@@ -24,6 +24,20 @@ FD: Seismic wavefield modeling using collocated grid finite difference method in
 
 FK: Seismic wavefield modeling using the frequency-wavenumber or propagator matrix method in three-dimensional elastic isotropic media.
 
+# Coordinate System
+
+o + ----------------------------> x
+  |
+  |
+  |
+  |
+  |
+  |
+  |
+  |
+  v
+  z
+
 # Citation
 If you use this software in your researches and prepare publications, please cite at least one of the following papers:
 
