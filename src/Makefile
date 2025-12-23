@@ -81,8 +81,7 @@ lib:
 		echo "You are using $(FC) compiler"; \
 		cp ../lib_gnu/*.so /usr/lib; \
 	else \
-		echo "You are using $(FC) compiler"; \
-		cp ../lib_pgi/*.so /usr/lib; \
+		echo "Unsupported compiler!"; \
 	fi
 
 
