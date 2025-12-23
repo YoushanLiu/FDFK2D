@@ -559,7 +559,7 @@ open(32, file=trim(outpath)//'/'//trim(fsis)//'z.su', form='unformatted', access
    end do
 close(31)
 close(32)
-pause 3
+
 
 
 deallocate(ux, uz)
@@ -587,5 +587,6 @@ deallocate(buz1b, buz2b, buz3b)
 
 end subroutine wavefieldsimulation
 !!=================================================================!!
+
 
 
