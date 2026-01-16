@@ -129,8 +129,8 @@ call read_data(nfile, nx, nz, npml, izt, nlayer_left, nlayer_right, nrcv, &
 
 
 
-call wavefieldsimulation(norder, nx, nz, npml, izt, is_PML_top, outsnap, src_type, nlayer_left, nlayer_right, nstep, &
-               nrcv, x0, z0, dx, dz, dt, ds, f0, tmax, tstp, rayp, evla, evlo, FKmodel_left, FKmodel_right, rx, rz, c)
+call simulate_wavefield(norder, nx, nz, npml, izt, is_PML_top, outsnap, src_type, nlayer_left, nlayer_right, nstep, &
+              nrcv, x0, z0, dx, dz, dt, ds, f0, tmax, tstp, rayp, evla, evlo, FKmodel_left, FKmodel_right, rx, rz, c)
 
 
 deallocate(FKmodel_left, FKmodel_right, rx, rz, c)
@@ -156,8 +156,8 @@ write(*,300) 'Elapsed time: ', dtm_incr(1), ' / ', dtm_incr(2), ' / ', dtm_incr(
 
 end program FDFK2D
 !!=================================================================!!
-subroutine wavefieldsimulation(norder, nx, nz, npml, izt, is_PML_top, outsnap, src_type, nlayer_left, nlayer_right, nstep, &
-                     nrcv, x0, z0, dx, dz, dt, ds, f0, tmax, tstp, rayp, evla, evlo, FKmodel_left, FKmodel_right, rx, rz, c)
+subroutine simulate_wavefield(norder, nx, nz, npml, izt, is_PML_top, outsnap, src_type, nlayer_left, nlayer_right, nstep, &
+                    nrcv, x0, z0, dx, dz, dt, ds, f0, tmax, tstp, rayp, evla, evlo, FKmodel_left, FKmodel_right, rx, rz, c)
 
 use FDFK_par
 use constants, only: PI, deg2rad, rad2deg
@@ -585,8 +585,9 @@ deallocate(bux1b, bux2b, bux3b)
 deallocate(buz1b, buz2b, buz3b)
 
 
-end subroutine wavefieldsimulation
+end subroutine simulate_wavefield
 !!=================================================================!!
+
 
 
 
