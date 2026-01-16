@@ -48,8 +48,8 @@ integer(8) days, days_start, days_end
 logical is_swap
 
 
-dtm_start(6) = dtm_start(6) + dtm_start(4)
-dtm_end(6) = dtm_end(6) + dtm_end(4)
+dtm_start(6) = dtm_start(6) - dtm_start(4)
+dtm_end(6) = dtm_end(6) - dtm_end(4)
 
 if (dtm_start(1) > dtm_end(1)) then
    dtm_swp = dtm_start
@@ -201,8 +201,8 @@ dtm_incr(5) = hour_incr
 dtm_incr(6) = min_incr
 dtm_incr(7) = sec_incr
 dtm_incr(8) = millisec_incr
-dtm_start(6) = dtm_start(6) - dtm_start(4)
-dtm_end(6) = dtm_end(6) - dtm_end(4)
+dtm_start(6) = dtm_start(6) + dtm_start(4)
+dtm_end(6) = dtm_end(6) + dtm_end(4)
 
 
 end subroutine elapsed_time
@@ -223,6 +223,7 @@ return
 
 end function is_leap_year
 !=================================================================!
+
 
 
 
