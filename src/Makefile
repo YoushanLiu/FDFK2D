@@ -21,7 +21,7 @@ else ifeq ($(FC),pgfortran)
 	FFLAGS = -O3 -fast -mp -m64 -Mpreprocess -Mnobounds -Mautoinline -Mcache_align -Mfma -Mprefetch -Munroll -Mdaz -mcmodel=medium -flushz
 else
 	FFLAGS = -O2
-$(info Unsuported Compiler!)
+$(info Unsupported Compiler!)
 endif
 
 LIBS = -lHybrid -lPML -lFK3D -llapack -lblas -lfftw3
@@ -80,6 +80,9 @@ lib:
 	elif [ "$(FC)" = "gfortran" ]; then \
 		echo "You are using $(FC) compiler"; \
 		cp ../lib_gnu/*.so /usr/lib; \
+	elif [ "$(FC)" = "pgfortran" ]; then \
+		echo "You are using $(FC) compiler"; \
+		cp ../lib_pgi/*.so /usr/lib; \
 	else \
 		echo "Unsupported compiler!"; \
 	fi
