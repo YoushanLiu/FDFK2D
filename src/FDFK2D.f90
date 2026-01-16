@@ -2,7 +2,7 @@
 ! E-mail: ysliu@mail.iggcas.ac.cn
 ! Institute of Geology and Geophysics, Chinese Academy of Sciences
 ! Teleseismic wavefield modeling in 2-D isotropic media using a hybrid method
-! that couples the Finite Difference (FD) method and Frequency-Wavenumber (FK) method
+! that couples the Finite Difference (FD) method with the Frequency-Wavenumber (FK) method
 !
 ! Coordinates system
 !
@@ -587,6 +587,7 @@ deallocate(buz1b, buz2b, buz3b)
 
 end subroutine simulate_wavefield
 !!=================================================================!!
+
 
 
 
