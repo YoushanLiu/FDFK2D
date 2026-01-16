@@ -213,12 +213,16 @@ implicit none
 
 integer(2), intent(in) :: iyear
 
-is_leap_year = .false.
-if (((0 /= mod(iyear,100)) .and. (0 == mod(iyear,4)) ) .or. (0 == mod(iyear,400))) is_leap_year = .true.
+if (((0 /= mod(iyear,100)) .and. (0 == mod(iyear,4)) ) .or. (0 == mod(iyear,400))) then
+   is_leap_year = .true.
+else
+   is_leap_year = .false.
+end if
 
 return
 
 end function is_leap_year
 !=================================================================!
+
 
 
