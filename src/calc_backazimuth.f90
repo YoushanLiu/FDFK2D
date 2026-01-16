@@ -75,21 +75,21 @@ subroutine backaz(evla, evlo, stla, stlo, baz, az, delta)
 !    between two sets of geographic coordinates
 !
 ! Given: stla => Latitude of first point (+N, -S) in degrees
-!	      stlo => Longitude of first point (+E, -W) in degrees
-!	      evla => Latitude of second point
-!	      evlo => Longitude of second point
+!	     stlo => Longitude of first point (+E, -W) in degrees
+!	     evla => Latitude of second point
+!	     evlo => Longitude of second point
 !
 ! Returns:  delta => Great Circle Arc distance in degrees
-!	         az    => Azimuth from pt. 1 to pt. 2 in degrees
-!	         baz   => Back Azimuth from pt. 2 to pt. 1 in degrees
+!	        az    => Azimuth from pt. 1 to pt. 2 in degrees
+!	        baz   => Back Azimuth from pt. 2 to pt. 1 in degrees
 !
 ! If you are calculating station-epicenter pairs, pt. 1 is the station
 !
 ! Equations take from Bullen, pages 154, 155
 !
 ! T. Owens, September 19, 1991
-!           Sept. 25 -- fixed az and baz calculations
-!           Dec. 2006, changed for fortran95
+!           Sep. 25   -- fixed az and baz calculations
+!           Dec. 2006 -- changed for fortran95
 !           May, 2007 -- added predel to get around OSX acos round-off NaN issue
 !
 !
@@ -268,4 +268,5 @@ end subroutine cart2geogr
 
 
 end module calc_azimuth
+
 
