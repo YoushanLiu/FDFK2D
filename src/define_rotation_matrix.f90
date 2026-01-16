@@ -16,7 +16,7 @@ real(8) sin_theta, cos_theta, sin_phi, cos_phi
 !real(8), dimension(3,3) :: R, R1, R2, R3
 
 
-az = dble(az_org)*deg2rad
+az  = dble(az_org)*deg2rad
 lat = dble(lat_org)*deg2rad
 lon = dble(lon_org)*deg2rad
 
@@ -87,3 +87,4 @@ inv_rotate_matrix(3,3) =  sin_theta
 
 
 end subroutine define_rotation_matrix
+
