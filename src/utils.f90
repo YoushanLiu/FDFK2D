@@ -6,14 +6,14 @@ implicit none
 integer, intent(inout) :: iunit
 
 
-logical unit_open
+logical unit_opened
 
 
 iunit = 21
-inquire(unit = iunit, opened = unit_open)
-do while(unit_open)
+inquire(unit = iunit, opened = unit_opened)
+do while(unit_opened)
    iunit = iunit + 1
-   inquire(unit = iunit, opened = unit_open)
+   inquire(unit = iunit, opened = unit_opened)
 end do
 
 end subroutine allocate_unit
@@ -223,6 +223,7 @@ return
 
 end function is_leap_year
 !=================================================================!
+
 
 
 
