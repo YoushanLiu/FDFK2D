@@ -34,7 +34,7 @@ integer(4) dtm_swp(1:8)
 integer(2) months_start(1:12)
 integer(2) months_end(1:12)
 
-integer(2) iyear, iminyear
+integer(2) iyear, year_min
 integer(2) year_start, year_end, year_incr
 integer(2) month_start, month_end, month_incr
 integer(2) day_start, day_end, day_incr
@@ -57,50 +57,56 @@ else
    is_swap = .false.
 end if
 
-if ((dtm_start(1) == dtm_end(1)) .and. (dtm_start(2) > dtm_end(2)) .and. is_swap) then
+if (.not.(is_swap) .and. (dtm_start(1) == dtm_end(1)) .and. (dtm_start(2) > dtm_end(2))) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
+   is_swap = .true.
 else
    is_swap = .false.
 end if
 
-if ((dtm_start(2) == dtm_end(2)) .and. (dtm_start(3) > dtm_end(3)) .and. is_swap) then
+if (.not.(is_swap) .and. (dtm_start(2) == dtm_end(2)) .and. (dtm_start(3) > dtm_end(3))) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
+   is_swap = .true.
 else
    is_swap = .false.
 end if
 
-if ((dtm_start(3) == dtm_end(3)) .and. (dtm_start(5) > dtm_end(5)) .and. is_swap) then
+if (.not.(is_swap) .and. (dtm_start(3) == dtm_end(3)) .and. (dtm_start(5) > dtm_end(5))) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
+   is_swap = .true.
 else
    is_swap = .false.
 end if
 
-if ((dtm_start(5) == dtm_end(5)) .and. (dtm_start(6) > dtm_end(6)) .and. is_swap) then
+if (.not.(is_swap) .and. (dtm_start(5) == dtm_end(5)) .and. (dtm_start(6) > dtm_end(6))) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
+   is_swap = .true.
 else
    is_swap = .false.
 end if
 
-if ((dtm_start(6) == dtm_end(6)) .and. (dtm_start(7) > dtm_end(7)) .and. is_swap) then
+if (.not.(is_swap) .and. (dtm_start(6) == dtm_end(6)) .and. (dtm_start(7) > dtm_end(7))) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
+   is_swap = .true.
 else
    is_swap = .false.
 end if
 
-if ((dtm_start(7) == dtm_end(7)) .and. (dtm_start(8) > dtm_end(8)) .and. is_swap) then
+if (.not.(is_swap) .and. (dtm_start(7) == dtm_end(7)) .and. (dtm_start(8) > dtm_end(8))) then
    dtm_swp = dtm_start
    dtm_start = dtm_end
    dtm_end = dtm_swp
+   is_swap = .true.
 else
    is_swap = .false.
 end if
@@ -131,23 +137,23 @@ months_end = months_start
 if (is_leap_year(year_start)) months_start(2) = months_start(2) + 1
 if (is_leap_year(year_end)) months_end(2) = months_end(2) + 1
 
-iminyear = min(year_start,year_end)
+year_min = min(year_start,year_end)
 
 days_start = 0
-do iyear = iminyear, year_start-1, 1
+do iyear = year_min, year_start-1, 1
 
    days_start = days_start + 365
-   if (is_leap_year(year_start)) days_start = days_start + 366
+   if (is_leap_year(iyear)) days_start = days_start + 1
 
 end do
 days_start = days_start + sum(months_start(1:month_start-1))
 days_start = days_start + day_start
 
 days_end = 0
-do iyear = iminyear, year_end-1, 1
+do iyear = year_min, year_end-1, 1
 
    days_end = days_end + 365
-   if (is_leap_year(iyear)) days_end = days_end + 366
+   if (is_leap_year(iyear)) days_end = days_end + 1
 
 end do
 days_end = days_end + sum(months_end(1:month_end-1))
@@ -210,3 +216,4 @@ return
 
 end function is_leap_year
 !=================================================================!
+
