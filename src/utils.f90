@@ -29,7 +29,7 @@ integer(4), intent(inout) :: dtm_incr(1:8)
 
 logical, external :: is_leap_year
 
-integer(2) iyear, year_min
+integer(2) year, year_min
 integer(2) year_start, year_end, year_incr
 integer(2) month_start, month_end, month_incr
 integer(2) day_start, day_end, day_incr
@@ -146,20 +146,20 @@ if (is_leap_year(year_end)) months_end(2) = months_end(2) + 1
 year_min = min(year_start,year_end)
 
 days_start = 0
-do iyear = year_min, year_start-1, 1
+do year = year_min, year_start-1, 1
 
    days_start = days_start + 365
-   if (is_leap_year(iyear)) days_start = days_start + 1
+   if (is_leap_year(year)) days_start = days_start + 1
 
 end do
 days_start = days_start + sum(months_start(1:month_start-1))
 days_start = days_start + day_start
 
 days_end = 0
-do iyear = year_min, year_end-1, 1
+do year = year_min, year_end-1, 1
 
    days_end = days_end + 365
-   if (is_leap_year(iyear)) days_end = days_end + 1
+   if (is_leap_year(year)) days_end = days_end + 1
 
 end do
 days_end = days_end + sum(months_end(1:month_end-1))
@@ -176,41 +176,41 @@ sec_incr = sec_end - sec_start
 millisec_incr = millisec_end - millisec_start
 
 if (millisec_incr < 0) then
-   n = floor(sec_incr/1000.0)
+   n = floor(sec_incr / 1000.0)
    sec_incr = sec_incr + n
    millisec_incr = millisec_incr - n*1000
 else if (millisec_incr > 1000) then
-   n = int(millisec_incr/1000)
+   n = int(millisec_incr / 1000)
    sec_incr = sec_incr + n
    millisec_incr = millisec_incr - n*1000
 end if
 
 if (sec_incr < 0) then
-   n = floor(sec_incr/60.0)
+   n = floor(sec_incr / 60.0)
    min_incr = min_incr + n
    sec_incr = sec_incr - n*60
 else if (sec_incr > 60) then
-   n = int(sec_incr/60)
+   n = int(sec_incr / 60)
    min_incr = min_incr + n
    sec_incr = sec_incr - n*60
 end if
 
 if (min_incr < 0) then
-   n = floor(sec_incr/60.0)
+   n = floor(sec_incr / 60.0)
    hour_incr = hour_incr + n
    min_incr = min_incr - n*60
 else if (min_incr > 60) then
-   n = int(min_incr/60)
+   n = int(min_incr / 60)
    hour_incr = hour_incr + n
    min_incr = min_incr - n*60
 end if
 
 if (hour_incr < 0) then
-   n = floor(sec_incr/24.0)
+   n = floor(sec_incr / 24.0)
    day_incr = day_incr + n
    hour_incr = hour_incr - n*24
 else if (hour_incr > 24) then
-   n = int(hour_incr/24)
+   n = int(hour_incr / 24)
    day_incr = day_incr + n
    hour_incr = hour_incr - n*24
 end if
@@ -247,5 +247,6 @@ return
 
 end function is_leap_year
 !=================================================================!
+
 
 
