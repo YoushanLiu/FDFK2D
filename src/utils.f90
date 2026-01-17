@@ -50,6 +50,7 @@ integer(8) days, days_start, days_end
 logical is_swap
 
 
+! convert to UTC datetime
 dtm_start(6) = dtm_start(6) - dtm_start(4)
 dtm_end(6) = dtm_end(6) - dtm_end(4)
 
@@ -246,3 +247,4 @@ return
 
 end function is_leap_year
 !=================================================================!
+
