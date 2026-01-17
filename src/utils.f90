@@ -29,13 +29,6 @@ integer(4), intent(inout) :: dtm_incr(1:8)
 
 logical, external :: is_leap_year
 
-integer(4) n
-
-integer(4) dtm_swp(1:8)
-
-integer(2) months_start(1:12)
-integer(2) months_end(1:12)
-
 integer(2) iyear, year_min
 integer(2) year_start, year_end, year_incr
 integer(2) month_start, month_end, month_incr
@@ -43,11 +36,18 @@ integer(2) day_start, day_end, day_incr
 integer(2) hour_start, hour_end, hour_incr
 integer(2) min_start, min_end, min_incr
 integer(2) sec_start, sec_end, sec_incr
+
+integer(4) n
 integer(4) millisec_start, millisec_end, millisec_incr
 
 integer(8) days, days_start, days_end
 
 logical is_swap
+
+integer(2) months_start(1:12)
+integer(2) months_end(1:12)
+
+integer(4) dtm_swap(1:8)
 
 
 ! convert to UTC datetime
@@ -55,63 +55,63 @@ dtm_start(6) = dtm_start(6) - dtm_start(4)
 dtm_end(6) = dtm_end(6) - dtm_end(4)
 
 if (dtm_start(1) > dtm_end(1)) then
-   dtm_swp = dtm_start
+   dtm_swap = dtm_start
    dtm_start = dtm_end
-   dtm_end = dtm_swp
+   dtm_end = dtm_swap
    is_swap = .true.
 else
    is_swap = .false.
 end if
 
 if (.not.(is_swap) .and. (dtm_start(1) == dtm_end(1)) .and. (dtm_start(2) > dtm_end(2))) then
-   dtm_swp = dtm_start
+   dtm_swap = dtm_start
    dtm_start = dtm_end
-   dtm_end = dtm_swp
+   dtm_end = dtm_swap
    is_swap = .true.
 else
    is_swap = .false.
 end if
 
 if (.not.(is_swap) .and. (dtm_start(2) == dtm_end(2)) .and. (dtm_start(3) > dtm_end(3))) then
-   dtm_swp = dtm_start
+   dtm_swap = dtm_start
    dtm_start = dtm_end
-   dtm_end = dtm_swp
+   dtm_end = dtm_swap
    is_swap = .true.
 else
    is_swap = .false.
 end if
 
 if (.not.(is_swap) .and. (dtm_start(3) == dtm_end(3)) .and. (dtm_start(5) > dtm_end(5))) then
-   dtm_swp = dtm_start
+   dtm_swap = dtm_start
    dtm_start = dtm_end
-   dtm_end = dtm_swp
+   dtm_end = dtm_swap
    is_swap = .true.
 else
    is_swap = .false.
 end if
 
 if (.not.(is_swap) .and. (dtm_start(5) == dtm_end(5)) .and. (dtm_start(6) > dtm_end(6))) then
-   dtm_swp = dtm_start
+   dtm_swap = dtm_start
    dtm_start = dtm_end
-   dtm_end = dtm_swp
+   dtm_end = dtm_swap
    is_swap = .true.
 else
    is_swap = .false.
 end if
 
 if (.not.(is_swap) .and. (dtm_start(6) == dtm_end(6)) .and. (dtm_start(7) > dtm_end(7))) then
-   dtm_swp = dtm_start
+   dtm_swap = dtm_start
    dtm_start = dtm_end
-   dtm_end = dtm_swp
+   dtm_end = dtm_swap
    is_swap = .true.
 else
    is_swap = .false.
 end if
 
 if (.not.(is_swap) .and. (dtm_start(7) == dtm_end(7)) .and. (dtm_start(8) > dtm_end(8))) then
-   dtm_swp = dtm_start
+   dtm_swap = dtm_start
    dtm_start = dtm_end
-   dtm_end = dtm_swp
+   dtm_end = dtm_swap
    is_swap = .true.
 else
    is_swap = .false.
@@ -247,4 +247,5 @@ return
 
 end function is_leap_year
 !=================================================================!
+
 
