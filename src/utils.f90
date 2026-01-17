@@ -29,6 +29,8 @@ integer(4), intent(inout) :: dtm_incr(1:8)
 
 logical, external :: is_leap_year
 
+integer(4) n
+
 integer(4) dtm_swp(1:8)
 
 integer(2) months_start(1:12)
@@ -173,24 +175,45 @@ sec_incr = sec_end - sec_start
 millisec_incr = millisec_end - millisec_start
 
 if (millisec_incr < 0) then
-   sec_incr = sec_incr - 1
-   millisec_incr = millisec_incr + 1000
+   n = floor(sec_incr/1000.0)
+   sec_incr = sec_incr + n
+   millisec_incr = millisec_incr - n*1000
+else if (millisec_incr > 1000) then
+   n = int(millisec_incr/1000)
+   sec_incr = sec_incr + n
+   millisec_incr = millisec_incr - n*1000
 end if
 
 if (sec_incr < 0) then
-   min_incr = min_incr - 1
-   sec_incr = sec_incr + 60
+   n = floor(sec_incr/60.0)
+   min_incr = min_incr + n
+   sec_incr = sec_incr - n*60
+else if (sec_incr > 60) then
+   n = int(sec_incr/60)
+   min_incr = min_incr + n
+   sec_incr = sec_incr - n*60
 end if
 
-if (min_incr < 0 ) then
-   hour_incr = hour_incr - 1
-   min_incr = min_incr + 60
+if (min_incr < 0) then
+   n = floor(sec_incr/60.0)
+   hour_incr = hour_incr + n
+   min_incr = min_incr - n*60
+else if (min_incr > 60) then
+   n = int(min_incr/60)
+   hour_incr = hour_incr + n
+   min_incr = min_incr - n*60
 end if
 
-if (hour_incr < 0 ) then
-   day_incr = day_incr - 1
-   hour_incr = hour_incr + 24
+if (hour_incr < 0) then
+   n = floor(sec_incr/24.0)
+   day_incr = day_incr + n
+   hour_incr = hour_incr - n*24
+else if (hour_incr > 24) then
+   n = int(hour_incr/24)
+   day_incr = day_incr + n
+   hour_incr = hour_incr - n*24
 end if
+
 
 ! output
 dtm_incr(1) = year_incr
@@ -207,13 +230,13 @@ dtm_end(6) = dtm_end(6) + dtm_end(4)
 
 end subroutine elapsed_time
 !=================================================================!
-logical function is_leap_year(iyear)
+logical function is_leap_year(year)
 
 implicit none
 
-integer(2), intent(in) :: iyear
+integer(2), intent(in) :: year
 
-if (((0 /= mod(iyear,100)) .and. (0 == mod(iyear,4)) ) .or. (0 == mod(iyear,400))) then
+if (((0 /= mod(year,100)) .and. (0 == mod(year,4)) ) .or. (0 == mod(year,400))) then
    is_leap_year = .true.
 else
    is_leap_year = .false.
@@ -223,8 +246,3 @@ return
 
 end function is_leap_year
 !=================================================================!
-
-
-
-
-
