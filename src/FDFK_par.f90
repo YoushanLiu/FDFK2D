@@ -19,7 +19,7 @@ character(256) :: fFDmodel = '', freceiver = '', fsource = ''
 character(256) :: finpar
 
 ! version information
-character(16) :: ver = 'v0.9'
+character(16) :: ver = 'v1.0'
 
 
 ! latitude, longitude, and azimuth of the reference point of the profile (x0, z0)
